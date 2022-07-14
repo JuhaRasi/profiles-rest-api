@@ -6,7 +6,7 @@ from django.contrib.auth.models import BaseUserManager
 # Create your models here.
 
 
-class UserProfileManager(models.Manager):
+class UserProfileManager(BaseUserManager):
     """Manager for UserProfile model."""
 
     def create_user(self, email, name, password=None):
@@ -59,7 +59,3 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """ Return string representation of our user """
         return self.email
-
-    class Meta:
-        verbose_name = 'User Profile'
-        verbose_name_plural = 'User Profiles'
